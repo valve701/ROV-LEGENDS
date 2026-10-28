@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top 5 ROV Esports Champions - สโมสรไร้พ่ายแห่งวงการ ROV</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts: Plus Jakarta Sans, Kanit & Syne -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            rov: {
+              sky: '#00A3E0',
+              deepsky: '#0284C7',
+              navy: '#0F172A',
+              softbg: '#F8FAFC',
+              cardbg: '#FFFFFF',
+              border: '#E2E8F0',
+              textPrimary: '#0F172A',
+              textSecondary: '#475569',
+              gold: '#D4AF37',
+              goldGlow: '#EAB308',
+              accentCyan: '#06B6D4'
+            }
+          },
+          fontFamily: {
+            sans: ['Kanit', 'Plus Jakarta Sans', 'sans-serif'],
+            display: ['Syne', 'Kanit', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #060911;
+      color: #F9FAFB;
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 15% 70%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #FFF176 0%, #F59E0B 50%, #D97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .avatar-glow {
+      box-shadow: 0 0 25px -3px rgba(245, 158, 11, 0.3);
+    }
+
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0D1322;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #374151;
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #4B5563;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-rov-gold selection:text-black font-sans">
+
+  <!-- Header Section -->
+  <header class="sticky top-0 z-40 backdrop-blur-xl bg-rov-darkBg/85 border-b border-gray-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Logo Brand -->
+      <div class="flex items-center space-x-3.5 cursor-pointer" onclick="scrollToTop()">
+        <div class="w-12 h-12 bg-gradient-to-br from-rov-gold to-amber-600 rounded-2xl flex items-center justify-center text-gray-950 font-black text-xl shadow-lg shadow-rov-gold/20 transform hover:scale-105 transition-all">
+          <i class="fa-solid fa-trophy text-xl"></i>
+        </div>
+        <div>
+          <h1 class="font-display text-xl sm:text-2xl font-extrabold tracking-wider text-white flex items-center gap-2">
+            ROV <span class="gold-gradient-text">LEGENDS</span>
+          </h1>
+          <p class="text-[10px] sm:text-xs text-rov-textSecondary font-medium tracking-widest uppercase">The Hall of Champions</p>
+        </div>
+      </div>
+
+      <!-- Navigation & Quick Info Badge -->
+      <div class="hidden md:flex items-center space-x-4">
+        <span class="flex items-center gap-2 bg-rov-violet/15 text-purple-300 px-4 py-1.5 rounded-full border border-rov-violet/30 text-xs font-semibold tracking-wider uppercase">
+          <span class="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
+          Esports Arena Database
+        </span>
+        <button onclick="scrollToSection('teams-section')" class="bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs font-bold px-4 py-2 rounded-xl border border-gray-700 transition">
+          <i class="fa-solid fa-list-ol mr-1.5 text-rov-gold"></i> อันดับสโมสร
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 flex-grow w-full z-10 relative">
+
+    <!-- Hero Banner (Light Clean Theme) -->
+    <div class="relative rounded-3xl p-6 sm:p-10 mb-12 overflow-hidden bg-white border border-slate-200 shadow-xl shadow-slate-200/60">
+      <div class="absolute -top-20 -right-20 w-80 h-80 bg-sky-100 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-20 -left-20 w-80 h-80 bg-amber-100 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-3xl relative z-10">
+        <span class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-sky-700 bg-sky-50 px-3.5 py-1.5 rounded-full border border-sky-200 mb-4">
+          <i class="fa-solid fa-crown text-amber-500"></i> Hall of Fame & Statistical Leaders
+        </span>
+        <h2 class="font-display text-3xl sm:text-5xl font-black text-slate-900 leading-tight uppercase mb-4">
+          5 สุดยอดทีม <span class="gold-gradient-text">ROV</span> <br>ที่คว้าแชมป์มากที่สุดตลอดกาล
+        </h2>
+        <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-normal mb-6">
+          เปิดทำเนียบ 5 สโมสรระดับตำนานแห่งวงการ Realm of Valor (ROV / AOV) ผู้เขียนประวัติศาสตร์หน้าสำคัญ ทั้งแชมป์ลีกระดับสูงสุด (RPL, AOG, GCS) และแชมป์โลก (AIC, AWC, APL) พร้อมระบบอัปโหลดและปรับเปลี่ยนรูปภาพสโมสรได้ตามต้องการ
+        </p>
+
+        <!-- Quick Filter Buttons -->
+        <div class="flex flex-wrap items-center gap-2 pt-2">
+          <span class="text-xs text-slate-500 font-bold mr-2">ตัวกรองสโมสร:</span>
+          <button onclick="filterRegion('all')" id="btn-filter-all" class="filter-btn active bg-slate-900 text-white text-xs font-bold px-3.5 py-2 rounded-xl border border-slate-900 shadow-sm transition">ทั้งหมด</button>
+          <button onclick="filterRegion('TH')" id="btn-filter-TH" class="filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3.5 py-2 rounded-xl border border-slate-200 transition"><i class="fa-solid fa-flag text-blue-500 mr-1"></i> ไทย (RPL)</button>
+          <button onclick="filterRegion('VN')" id="btn-filter-VN" class="filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3.5 py-2 rounded-xl border border-slate-200 transition"><i class="fa-solid fa-flag text-red-500 mr-1"></i> เวียดนาม (AOG)</button>
+          <button onclick="filterRegion('TW')" id="btn-filter-TW" class="filter-btn bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold px-3.5 py-2 rounded-xl border border-slate-200 transition"><i class="fa-solid fa-flag text-sky-500 mr-1"></i> ไต้หวัน (GCS)</button>
+        </div>
+      </div>
+
+      <!-- Overview Trophy Counter Strip -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-slate-100">
+        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80">
+          <div class="text-2xl sm:text-3xl font-black font-display text-slate-900" id="stat-total-trophies">36+</div>
+          <div class="text-[11px] text-slate-500 font-bold uppercase tracking-wider">รวมถ้วยรางวัลทั้งหมด</div>
+        </div>
+        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80">
+          <div class="text-2xl sm:text-3xl font-black font-display text-amber-600" id="stat-global-titles">11</div>
+          <div class="text-[11px] text-slate-500 font-bold uppercase tracking-wider">แชมป์ระดับนานาชาติ (Global)</div>
+        </div>
+        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80">
+          <div class="text-2xl sm:text-3xl font-black font-display text-purple-600" id="stat-domestic-titles">25+</div>
+          <div class="text-[11px] text-slate-500 font-bold uppercase tracking-wider">แชมป์ลีกในประเทศ (Domestic)</div>
+        </div>
+        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200/80">
+          <div class="text-2xl sm:text-3xl font-black font-display text-sky-600">5 Teams</div>
+          <div class="text-[11px] text-slate-500 font-bold uppercase tracking-wider">ยอดสโมสรระดับตำนาน</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Teams List Grid Section -->
+    <section id="teams-section" class="mb-16">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <h3 class="text-2xl font-black text-slate-900 flex items-center gap-2">
+            <i class="fa-solid fa-ranking-star text-amber-500"></i> รายชื่อ 5 สุดยอดทีมแชมป์ ROV
+          </h3>
+          <p class="text-xs text-slate-500 font-medium mt-1">สามารถคลิกเพื่อชมรายละเอียด หรืออัปโหลด/วาง URL เพื่อเปลี่ยนรูปสโมสรได้</p>
+        </div>
+        <!-- Search Input -->
+        <div class="relative w-full sm:w-72">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+          <input type="text" id="teamSearchInput" oninput="handleSearch()" placeholder="ค้นหาชื่อทีม, ผู้เล่น หรือลีก..." class="w-full bg-white border border-slate-300 text-slate-800 text-xs rounded-xl pl-9 pr-4 py-2.5 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-100 transition shadow-sm">
+        </div>
+      </div>
+
+      <!-- Teams Container Grid -->
+      <div id="teamsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered Dynamically by JavaScript -->
+      </div>
+    </section>
+
+    <!-- Comparison & Trophy Distribution Breakdown -->
+    <section class="mb-12 bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 shadow-lg shadow-slate-200/50">
+      <div class="max-w-3xl mb-6">
+        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 flex items-center gap-2">
+          <i class="fa-solid fa-chart-column text-sky-600"></i> ตารางเปรียบเทียบแชมป์สโมสร (Trophy Breakdown)
+        </h3>
+        <p class="text-xs text-slate-500 mt-1">สรุปการคว้าแชมป์ในแต่ละรายการหลักของ 5 ยอดทีมในตำนาน</p>
+      </div>
+
+      <div class="overflow-x-auto custom-scrollbar">
+        <table class="w-full text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr class="border-b border-slate-200 text-slate-500 uppercase tracking-wider text-[11px] bg-slate-50">
+              <th class="py-3 px-4 rounded-l-xl">อันดับ / สโมสร</th>
+              <th class="py-3 px-4">ภูมิภาค</th>
+              <th class="py-3 px-4 text-center">แชมป์โลก / นานาชาติ</th>
+              <th class="py-3 px-4 text-center">แชมป์ลีกในประเทศ</th>
+              <th class="py-3 px-4 text-center">รวมถ้วยแชมป์</th>
+              <th class="py-3 px-4 text-right rounded-r-xl">รายละเอียด</th>
+            </tr>
+          </thead>
+          <tbody id="comparisonTableBody" class="divide-y divide-slate-100 text-slate-700">
+            <!-- Rendered Dynamically -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Image Customizer Modal -->
+  <div id="imageModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm transition-all duration-300 opacity-0">
+    <div class="relative w-full max-w-md bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden p-6">
+      <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
+        <h3 class="text-base font-bold text-slate-900 flex items-center gap-2">
+          <i class="fa-solid fa-image text-sky-600"></i> เปลี่ยนรูปภาพสโมสร
+        </h3>
+        <button onclick="closeImageModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center transition">
+          <i class="fa-solid fa-xmark text-sm"></i>
+        </button>
+      </div>
+
+      <p id="imageModalTeamName" class="text-xs font-semibold text-slate-500 mb-4">สโมสร: -</p>
+
+      <!-- Option 1: Upload File -->
+      <div class="mb-4">
+        <label class="block text-xs font-bold text-slate-700 mb-1.5">อัปโหลดรูปภาพจากเครื่อง</label>
+        <input type="file" id="imageFileInput" accept="image/*" onchange="handleFileUpload(event)" class="w-full text-xs text-slate-500 file:mr-3 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-sky-50 file:text-sky-700 hover:file:bg-sky-100 transition cursor-pointer">
+      </div>
+
+      <div class="flex items-center my-4">
+        <div class="flex-grow border-t border-slate-200"></div>
+        <span class="px-3 text-[10px] text-slate-400 uppercase font-bold">หรือ</span>
+        <div class="flex-grow border-t border-slate-200"></div>
+      </div>
+
+      <!-- Option 2: Image URL -->
+      <div class="mb-5">
+        <label class="block text-xs font-bold text-slate-700 mb-1.5">ระบุ Image URL</label>
+        <input type="url" id="imageUrlInput" placeholder="https://example.com/logo.png" class="w-full bg-slate-50 border border-slate-300 text-xs text-slate-800 rounded-xl px-3.5 py-2.5 focus:outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-100 transition">
+      </div>
+
+      <!-- Actions -->
+      <div class="flex justify-end space-x-2 pt-2 border-t border-slate-100">
+        <button onclick="resetTeamImage()" class="px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-semibold rounded-xl transition">
+          รีเซ็ตเป็นรูปเดิม
+        </button>
+        <button onclick="saveTeamImage()" class="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold rounded-xl transition shadow-md shadow-sky-600/20">
+          บันทึกรูปภาพ
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Detail Modal -->
+  <div id="teamModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm transition-all duration-300 opacity-0">
+    <div class="relative w-full max-w-3xl bg-white border border-slate-200 rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] flex flex-col">
+      
+      <!-- Modal Header -->
+      <div id="modalHeaderBg" class="p-6 sm:p-8 bg-gradient-to-r from-slate-900 via-sky-950 to-slate-900 text-white border-b border-slate-800 relative">
+        <button onclick="closeModal()" class="absolute top-5 right-5 w-9 h-9 bg-white/20 hover:bg-white/30 text-white rounded-full flex items-center justify-center transition border border-white/20 backdrop-blur-md">
+          <i class="fa-solid fa-xmark text-base"></i>
+        </button>
+        <div class="flex items-center space-x-5">
+          <div id="modalLogoContainer" class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white p-2 flex items-center justify-center shadow-lg border border-slate-200 shrink-0 overflow-hidden">
+            <!-- Image loaded here -->
+          </div>
+          <div>
+            <div class="flex items-center gap-2 mb-1">
+              <span id="modalRank" class="bg-amber-400/20 text-amber-300 text-[10px] font-bold px-2.5 py-0.5 rounded-full border border-amber-400/30">#1 TOP CHAMPION</span>
+              <span id="modalRegion" class="bg-slate-800 text-slate-300 text-[10px] font-semibold px-2.5 py-0.5 rounded-full border border-slate-700">TH REGION</span>
+            </div>
+            <h2 id="modalTeamName" class="text-2xl sm:text-3xl font-extrabold text-white">Team Name</h2>
+            <p id="modalFullName" class="text-xs text-slate-300">Full Name / League</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Scrollable Content -->
+      <div class="p-6 sm:p-8 space-y-6 overflow-y-auto custom-scrollbar flex-grow text-slate-700 text-xs sm:text-sm">
+        
+        <!-- Summary Stats Grid -->
+        <div class="grid grid-cols-3 gap-3">
+          <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-center">
+            <span class="block text-[10px] text-slate-500 uppercase font-bold">รวมถ้วยรางวัล</span>
+            <span id="modalTotalTitles" class="text-xl sm:text-2xl font-black text-amber-600">8</span>
+          </div>
+          <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-center">
+            <span class="block text-[10px] text-slate-500 uppercase font-bold">แชมป์นานาชาติ</span>
+            <span id="modalGlobalTitles" class="text-xl sm:text-2xl font-black text-purple-600">3</span>
+          </div>
+          <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-200 text-center">
+            <span class="block text-[10px] text-slate-500 uppercase font-bold">แชมป์ลีกในประเทศ</span>
+            <span id="modalDomesticTitles" class="text-xl sm:text-2xl font-black text-sky-600">5</span>
+          </div>
+        </div>
+
+        <!-- Team History & Narrative -->
+        <div>
+          <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-2 flex items-center gap-2">
+            <i class="fa-solid fa-book-open text-amber-500"></i> ประวัติและความยิ่งใหญ่ของสโมสร
+          </h4>
+          <p id="modalDescription" class="text-slate-600 leading-relaxed font-normal">
+            Description goes here...
+          </p>
+        </div>
+
+        <!-- Trophy Cabinet Detail -->
+        <div>
+          <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-trophy text-amber-500"></i> ถ้วยรางวัลเกียรติยศ (Trophy Honor Roll)
+          </h4>
+          <div id="modalTrophyList" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <!-- Trophy items -->
+          </div>
+        </div>
+
+        <!-- Legendary Players & Stars -->
+        <div>
+          <h4 class="text-sm font-bold text-slate-900 uppercase tracking-wider mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-users text-sky-600"></i> ผู้เล่นระดับตำนาน & สตาร์ประจำทีม
+          </h4>
+          <div id="modalRoster" class="flex flex-wrap gap-2">
+            <!-- Players badges -->
+          </div>
+        </div>
+
+        <!-- Playstyle & Identity -->
+        <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+          <h4 class="text-xs font-bold text-slate-800 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+            <i class="fa-solid fa-chess text-purple-600"></i> สไตล์การเล่นเอกลักษณ์ (Team Playstyle)
+          </h4>
+          <p id="modalPlaystyle" class="text-xs text-slate-600 leading-relaxed">
+            Playstyle details...
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="p-4 bg-slate-50 border-t border-slate-200 flex justify-end">
+        <button onclick="closeModal()" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs rounded-xl transition shadow-sm">
+          ปิดหน้าต่าง
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-200 bg-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+      <div class="flex items-center space-x-2">
+        <i class="fa-solid fa-gamepad text-amber-500"></i>
+        <span>ROV Esports Champions Showcase &copy; 2026</span>
+      </div>
+      <p>รวบรวมข้อมูลสถิติตำนานแชมป์ระดับโลก Realm of Valor / Arena of Valor</p>
+    </div>
+  </footer>
+
+  <!-- App Data & Interactivity Logic -->
+  <script>
+    // Database of Top 5 ROV Teams with Images
+    const teamsData = [
+      {
+        id: 'talon',
+        rank: 1,
+        name: 'Talon Esports',
+        shortName: 'TLN',
+        region: 'TH',
+        league: 'RPL (RoV Pro League Thailand)',
+        image: 'https://i.pinimg.com/1200x/34/85/ee/3485ee15112735f8b0def0a1f39c14ae.jpg',
+        metaInfo: 'THAILAND CHAMPION • 2020–PRESENT',
+        gradientBorder: 'from-red-500 via-amber-400 to-rose-700',
+        colorFrom: 'from-red-600',
+        colorTo: 'to-rose-950',
+        accentColor: '#EF4444',
+        icon: 'fa-shield-halved',
+        totalTitles: 7,
+        globalTitles: 2,
+        domesticTitles: 5,
+        winRate: '68.5%',
+        description: 'Talon Esports (มังกรแดง) คือหนึ่งในสโมสรที่ประสบความสำเร็จสูงที่สุดในประวัติศาสตร์ ROV โลก คว้าแชมป์ระดับนานาชาติอย่าง AWC 2021 และ AIC 2023 พร้อมครองถ้วยแชมป์ประเทศ Thailand Pro League (RPL) ได้ถึง 5 สมัย',
+        trophies: [
+          { name: 'AWC 2021 (Arena of Valor World Cup)', category: 'Global Championship', year: '2021' },
+          { name: 'AIC 2023 (Arena of Valor International Championship)', category: 'Global Championship', year: '2023' },
+          { name: 'RoV Pro League (RPL) Season 6', category: 'Domestic Title', year: '2020' },
+          { name: 'RoV Pro League (RPL) Season 8', category: 'Domestic Title', year: '2021' },
+          { name: 'RoV Pro League (RPL) 2023 Winter', category: 'Domestic Title', year: '2023' },
+          { name: 'RoV Pro League (RPL) 2024 Summer', category: 'Domestic Title', year: '2024' },
+          { name: 'RoV Pro League (RPL) 2024 Winter', category: 'Domestic Title', year: '2024' }
+        ],
+        keyPlayers: ['Difoxn', 'NTNz', 'IPodPro', 'POGPOG', 'Deboom'],
+        playstyle: 'เน้น Macro Control คุมไฟต์รอบคอบ การตัดสินใจในศึกใหญ่มั่นคงที่สุด'
+      },
+      {
+        id: 'team-flash',
+        rank: 2,
+        name: 'Team Flash',
+        shortName: 'FL',
+        region: 'VN',
+        league: 'AOG (Arena of Glory Vietnam)',
+        image: 'https://i.pinimg.com/736x/03/a2/64/03a264a627f209ffdc8bb1b1e252b952.jpg',
+        metaInfo: 'VIETNAM DYNASTY • 2018–PRESENT',
+        gradientBorder: 'from-amber-400 via-orange-500 to-yellow-600',
+        colorFrom: 'from-amber-500',
+        colorTo: 'to-orange-950',
+        accentColor: '#F59E0B',
+        icon: 'fa-bolt-lightning',
+        totalTitles: 7,
+        globalTitles: 2,
+        domesticTitles: 5,
+        winRate: '66.2%',
+        description: 'Team Flash ตำนานสโมสรอันดับ 1 จากประเทศเวียดนาม ผู้สร้างประวัติศาสตร์ทำ "Grand Slam" คว้าแชมป์ทุกรายการที่ลงแข่งในปี 2019 ทั้ง AWC 2019 และ AIC 2019',
+        trophies: [
+          { name: 'AWC 2019 (Arena of Valor World Cup)', category: 'Global Championship', year: '2019' },
+          { name: 'AIC 2019 (Arena of Valor International Championship)', category: 'Global Championship', year: '2019' },
+          { name: 'Arena of Glory (AOG) Spring', category: 'Domestic Title', year: '2019' },
+          { name: 'Arena of Glory (AOG) Winter', category: 'Domestic Title', year: '2019' },
+          { name: 'Arena of Glory (AOG) Spring', category: 'Domestic Title', year: '2020' }
+        ],
+        keyPlayers: ['ADC (Jungle God)', 'XB (Mid God)', 'ProE (Support Legend)'],
+        playstyle: 'สไตล์การกดดันด้วยความเร็วสูง (High Tempo) และแผนการดราฟต์ดุดัน'
+      },
+      {
+        id: 'bacon-time',
+        rank: 3,
+        name: 'Bacon Time',
+        shortName: 'BAC',
+        region: 'TH',
+        league: 'RPL (RoV Pro League Thailand)',
+        image: 'https://i.pinimg.com/736x/fc/31/7d/fc317d606fc09047def4c05aa92ca66e.jpg',
+        metaInfo: 'FAN FAVORITE • 2017–PRESENT',
+        gradientBorder: 'from-pink-500 via-rose-400 to-purple-600',
+        colorFrom: 'from-pink-500',
+        colorTo: 'to-rose-950',
+        accentColor: '#EC4899',
+        icon: 'fa-bacon',
+        totalTitles: 6,
+        globalTitles: 1,
+        domesticTitles: 5,
+        winRate: '69.1%',
+        description: 'Bacon Time สโมสรขวัญใจแฟนคลับอันดับ 1 ตลอดกาล กวาดแชมป์ RPL ประเทศไทย 5 สมัย และคว้าแชมป์ระดับนานาชาติ APL 2022 อย่างยิ่งใหญ่',
+        trophies: [
+          { name: 'APL 2022 (Arena of Valor Premier League)', category: 'Global Championship', year: '2022' },
+          { name: 'TOG 2017 (Throne of Glory)', category: 'International Title', year: '2017' },
+          { name: 'RoV Pro League (RPL) 2021 Summer', category: 'Domestic Title', year: '2021' }
+        ],
+        keyPlayers: ['MarkKy', 'Kimsensei', 'AlmondP', 'TaoX', 'Moowan'],
+        playstyle: 'ทีมเวิร์กที่รู้ใจกันสูงสุด Outplay ด้วยทักษะส่วนตัวและแผนมืด'
+      },
+      {
+        id: 'saigon-phantom',
+        rank: 4,
+        name: 'Saigon Phantom',
+        shortName: 'SGP',
+        region: 'VN',
+        league: 'AOG (Arena of Glory Vietnam)',
+        image: 'https://i.pinimg.com/736x/08/75/0d/08750dafa089ae2af661b12618b1de00.jpg',
+        metaInfo: 'AOG KINGS • 2018–PRESENT',
+        gradientBorder: 'from-purple-500 via-indigo-400 to-cyan-500',
+        colorFrom: 'from-purple-600',
+        colorTo: 'to-indigo-950',
+        accentColor: '#A855F7',
+        icon: 'fa-ghost',
+        totalTitles: 8,
+        globalTitles: 1,
+        domesticTitles: 7,
+        winRate: '67.8%',
+        description: 'Saigon Phantom (ภูตผีแห่งไซง่อน) มหาอำนาจอันดับ 1 ยุคปัจจุบันของลีก AOG เวียดนาม กวาดแชมป์ลีกในประเทศอย่างต่อเนื่องถึง 7 สมัย และเป็นแชมป์โลก APL 2023',
+        trophies: [
+          { name: 'APL 2023 (Arena of Valor Premier League)', category: 'Global Championship', year: '2023' },
+          { name: 'Arena of Glory (AOG) Spring & Winter', category: 'Domestic Title', year: '2023' }
+        ],
+        keyPlayers: ['Bang', 'Fish', 'Red', 'Khoa'],
+        playstyle: 'Aggressive Early Game บดขยี้คู่แข่งด้วยพลังไลน์อัพดาวรุ่ง'
+      },
+      {
+        id: 'buriram-united',
+        rank: 5,
+        name: 'Buriram United Esports',
+        shortName: 'BRUTd',
+        region: 'TH',
+        league: 'RPL (RoV Pro League Thailand)',
+        image: 'https://i.pinimg.com/736x/80/f7/e2/80f7e247ae7d31dfa80d548d9d57b9fc.jpg',
+        metaInfo: 'THUNDER CASTLE • 2018–PRESENT',
+        gradientBorder: 'from-blue-500 via-cyan-400 to-indigo-600',
+        colorFrom: 'from-blue-600',
+        colorTo: 'to-slate-950',
+        accentColor: '#2563EB',
+        icon: 'fa-castle',
+        totalTitles: 4,
+        globalTitles: 1,
+        domesticTitles: 3,
+        winRate: '65.4%',
+        description: 'Buriram United Esports (ปราสาทสายฟ้า) เจ้าของแชมป์โลก AIC 2021 และเป็นแชมป์ไร้พ่ายในลีก RPL ถึง 2 สมัยติดต่อกัน',
+        trophies: [
+          { name: 'AIC 2021 (Arena of Valor International Championship)', category: 'Global Championship', year: '2021' },
+          { name: 'RoV Pro League (RPL) Season 3', category: 'Domestic Title', year: '2019' }
+        ],
+        keyPlayers: ['Nunu', 'Overfly', 'FirstOne', 'Isilindilz'],
+        playstyle: 'Mid-Centric Playstyle ขับเคลื่อนด้วย Nunu ผู้เล่นเลนกลางระดับโลก'
+      }
+    ];
+
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTeams();
+      renderComparisonTable();
+    });
+
+    // Render Cards Grid with requested Avatar Ring Image Structure
+    function renderTeams() {
+      const grid = document.getElementById('teamsGrid');
+      grid.innerHTML = '';
+
+      const filtered = teamsData.filter(team => {
+        const matchesRegion = currentFilter === 'all' || team.region === currentFilter;
+        const matchesSearch = team.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              team.shortName.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                              team.keyPlayers.some(p => p.toLowerCase().includes(searchQuery.toLowerCase())) ||
+                              team.league.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchesRegion && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full py-12 text-center text-gray-400 bg-gray-900/50 rounded-2xl border border-gray-800">
+            <i class="fa-solid fa-ghost text-4xl mb-3 text-gray-600"></i>
+            <p>ไม่พบข้อมูลสโมสรที่ค้นหา</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach((team) => {
+        const card = document.createElement('div');
+        card.className = `group bg-gradient-to-b from-gray-900 to-gray-950 border border-gray-800 hover:border-gray-700 rounded-3xl p-6 transition-all duration-300 hover:-translate-y-1.5 cursor-pointer relative overflow-hidden flex flex-col items-center text-center justify-between shadow-xl`;
+        
+        card.onclick = () => openModal(team.id);
+
+        card.innerHTML = `
+          <!-- Accent Glow Header -->
+          <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${team.colorFrom} opacity-10 rounded-full blur-2xl group-hover:opacity-25 transition"></div>
+
+          <div class="w-full flex flex-col items-center">
+            <!-- Top Rank Badge Row -->
+            <div class="w-full flex items-center justify-between mb-4">
+              <span class="w-8 h-8 rounded-xl bg-gray-800 border border-gray-700 flex items-center justify-center text-sm font-black font-display text-rov-gold shadow-md">
+                #${team.rank}
+              </span>
+              <span class="bg-rov-gold/15 text-rov-gold text-[10px] font-bold px-2.5 py-1 rounded-full border border-rov-gold/30">
+                ${team.totalTitles} ถ้วยรางวัล
+              </span>
+            </div>
+
+            <!-- Avatar Container (Exact requested structure) -->
+            <div class="relative w-36 h-36 rounded-full p-1.5 bg-gradient-to-tr ${team.gradientBorder} mb-4 avatar-glow group-hover:scale-105 transition-transform duration-500">
+              <img src="${team.image}" alt="${team.name}" class="w-full h-full object-cover rounded-full border-2 border-white">
+            </div>
+
+            <!-- Category / Role / Meta Span -->
+            <span class="text-xs font-bold text-rov-gold uppercase tracking-widest block mb-1">
+              ${team.metaInfo}
+            </span>
+
+            <!-- Team Brand & Name -->
+            <h4 class="text-xl font-black text-white group-hover:text-rov-gold transition mb-1">${team.name}</h4>
+            <p class="text-xs text-gray-400 font-medium mb-4">${team.league}</p>
+
+            <!-- Stats Chips -->
+            <div class="grid grid-cols-2 gap-2 w-full mb-4">
+              <div class="bg-gray-950/70 p-2 rounded-xl border border-gray-800/80 text-center">
+                <span class="block text-[9px] text-gray-400 uppercase font-medium">นานาชาติ</span>
+                <span class="text-xs font-bold text-purple-300">${team.globalTitles} รายการ</span>
+              </div>
+              <div class="bg-gray-950/70 p-2 rounded-xl border border-gray-800/80 text-center">
+                <span class="block text-[9px] text-gray-400 uppercase font-medium">ในประเทศ</span>
+                <span class="text-xs font-bold text-cyan-300">${team.domesticTitles} สมัย</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Action Link -->
+          <div class="w-full pt-4 border-t border-gray-800/80 flex items-center justify-between text-xs text-gray-400 group-hover:text-white transition">
+            <span class="font-medium">รับชมเกียรติประวัติเต็ม</span>
+            <i class="fa-solid fa-arrow-right text-rov-gold transform group-hover:translate-x-1 transition"></i>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    // ... existing table rendering & modal logic ...
+  </script>
+</body>
+</html>
